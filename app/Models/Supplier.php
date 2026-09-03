@@ -21,4 +21,12 @@ class Supplier extends Model
     {
         return $this->hasMany(Import::class);
     }
+
+    /**
+     * @return HasMany<Offer, $this>
+     */
+    public function offers(): HasMany
+    {
+        return $this->hasMany(Offer::class);
+    }
 }
