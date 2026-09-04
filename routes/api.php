@@ -3,4 +3,10 @@
 use App\Http\Controllers\Api\ImportController;
 use Illuminate\Support\Facades\Route;
 
-Route::post('/imports', [ImportController::class, 'store'])->name('imports.store');
+Route::controller(ImportController::class)
+    ->name('imports.')
+    ->prefix('imports')
+    ->group(function () {
+        Route::post('/', 'store')->name('store');
+        Route::get('/{import}', 'show')->name('show');
+    });

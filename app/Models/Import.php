@@ -9,9 +9,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Carbon;
 
 /**
  * @property ImportStatus $status
+ * @property Carbon $sent_at
+ * @property Carbon $created_at
+ * @property Carbon|null $completed_at
+ * @property-read Supplier $supplier
  * @property list<array{
  *     external_id: string,
  *     property: array{
