@@ -1,0 +1,208 @@
+{
+  "info": {
+    "_postman_id": "25d9e5a7-0143-443b-b8e5-dd5aebcd956b",
+    "name": "WTG",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "34761127"
+  },
+  "item": [
+    {
+      "name": "api/imports",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"supplier\": \"supplier-a\",\n    \"external_import_id\": \"import-2026-09-01-008\",\n    \"sent_at\": \"2026-09-01T10:00:00Z\",\n    \"offers\": [\n        {\n            \"external_id\": \"offer-a-10001\",\n            \"property\": {\n                \"code\": \"QBCN-0001\",\n                \"name\": \"Apartment near Sagrada Familia\",\n                \"city\": \"Barcelona\"\n            },\n            \"check_in\": \"2026-10-10\",\n            \"check_out\": \"2026-10-15\",\n            \"max_guests\": 4,\n            \"price\": 72500,\n            \"currency\": \"EUR\",\n            \"available_units\": 2,\n            \"expires_at\": \"2030-09-10T23:59:59Z\"\n        },\n        {\n            \"external_id\": \"offer-a-10002\",\n            \"property\": {\n                \"code\": \"QBCN-0002\",\n                \"name\": \"Apartment near Sagrada Familia\",\n                \"city\": \"Gabana\"\n            },\n            \"check_in\": \"2026-10-10\",\n            \"check_out\": \"2026-10-15\",\n            \"max_guests\": 4,\n            \"price\": 72500,\n            \"currency\": \"EUR\",\n            \"available_units\": 2,\n            \"expires_at\": \"2030-09-10T23:59:59Z\"\n        },\n        {\n            \"external_id\": \"offer-a-10003\",\n            \"property\": {\n                \"code\": \"QBCN-0003\",\n                \"name\": \"Apartment near Sagrada Familia\",\n                \"city\": \"Dnipro\"\n            },\n            \"check_in\": \"2026-10-10\",\n            \"check_out\": \"2026-10-15\",\n            \"max_guests\": 4,\n            \"price\": 72500,\n            \"currency\": \"EUR\",\n            \"available_units\": 2,\n            \"expires_at\": \"2030-09-10T23:59:59Z\"\n        }\n    ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{HOST}}/api/imports",
+          "host": [
+            "{{HOST}}"
+          ],
+          "path": [
+            "api",
+            "imports"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "api/imports/{import}",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{HOST}}/api/imports/{{import_id}}",
+          "host": [
+            "{{HOST}}"
+          ],
+          "path": [
+            "api",
+            "imports",
+            "{{import_id}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "api/properties",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{HOST}}/api/properties?check_in=2026-10-10&check_out=2026-10-15&page=1&guests=1",
+          "host": [
+            "{{HOST}}"
+          ],
+          "path": [
+            "api",
+            "properties"
+          ],
+          "query": [
+            {
+              "key": "city",
+              "value": "Dnipro",
+              "disabled": true
+            },
+            {
+              "key": "check_in",
+              "value": "2026-10-10"
+            },
+            {
+              "key": "check_out",
+              "value": "2026-10-15"
+            },
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "guests",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "api/offers/{offer}/reservations",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"client_reference\": \"web-order-9f782b1c\",\n    \"customer_name\": \"John Smith\",\n    \"customer_email\": \"john@example.com\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{HOST}}/api/offers/{{offer_id}}/reservations",
+          "host": [
+            "{{HOST}}"
+          ],
+          "path": [
+            "api",
+            "offers",
+            "{{offer_id}}",
+            "reservations"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "HOST",
+      "value": "http://127.0.0.1:8000"
+    },
+    {
+      "key": "import_id",
+      "value": ""
+    },
+    {
+      "key": "offer_id",
+      "value": ""
+    }
+  ]
+}

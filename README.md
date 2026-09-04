@@ -131,3 +131,17 @@ http://127.0.0.1:8000/api/documentation
 ```
 
 If the application is served through Docker or another web server, use that server's base URL with the `/api/documentation` path.
+
+## Postman collection
+
+A ready-to-use Postman collection is available at
+[`postman/WTG.postman_collection.json`](postman/WTG.postman_collection.json).
+
+Import this file into Postman. The `HOST` collection variable defaults to
+`http://127.0.0.1:8000` and can be changed if the application uses another URL.
+
+After creating an import, copy the returned import ID to the `import_id`
+collection variable. After finding an offer through the property search,
+copy its ID to the `offer_id` variable before creating a reservation.
+
+Make sure the queue worker is running when testing asynchronous imports.
