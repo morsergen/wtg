@@ -14,4 +14,26 @@ use OpenApi\Attributes as OA;
     description: 'Current application server',
 )]
 
+#[OA\Schema(
+    schema: 'ValidationError',
+    required: ['message', 'errors'],
+    properties: [
+        new OA\Property(
+            property: 'message',
+            type: 'string',
+            example: 'The supplier field is required.',
+        ),
+        new OA\Property(
+            property: 'errors',
+            type: 'object',
+            additionalProperties: new OA\AdditionalProperties(
+                type: 'array',
+                items: new OA\Items(type: 'string'),
+            ),
+        ),
+    ],
+    type: 'object',
+    additionalProperties: false,
+)]
+
 final class Documentation {}

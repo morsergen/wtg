@@ -10,6 +10,24 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * @property ImportStatus $status
+ * @property list<array{
+ *     external_id: string,
+ *     property: array{
+ *         code: string,
+ *         name: string,
+ *         city: string
+ *     },
+ *     check_in: string,
+ *     check_out: string,
+ *     max_guests: int,
+ *     price: int,
+ *     currency: string,
+ *     available_units: int,
+ *     expires_at: string
+ * }> $payload
+ */
 #[Fillable([
     'supplier_id',
     'external_import_id',
