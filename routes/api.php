@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\ImportController;
 use App\Http\Controllers\Api\PropertyController;
+use App\Http\Controllers\Api\ReservationController;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(ImportController::class)
@@ -17,4 +18,11 @@ Route::controller(PropertyController::class)
     ->prefix('properties')
     ->group(function () {
         Route::get('/', 'index')->name('index');
+    });
+
+Route::controller(ReservationController::class)
+    ->name('offers.reservations.')
+    ->prefix('offers/{offer}/reservations')
+    ->group(function () {
+        Route::post('/', 'store')->name('store');
     });
